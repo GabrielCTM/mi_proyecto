@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Riesgo Financiero</title>
+</head>
+<body>
+    <h1>Evaluación de Riesgo Financiero</h1>
+    <form method="POST">
+        <label>Puntuación Crediticia:</label>
+        <input type="number" name="puntuacion_crediticia" required><br>
+
+        <label>Ingresos Mensuales:</label>
+        <input type="number" name="ingresos_mensuales" required><br>
+
+        <label>Cuota de Préstamo:</label>
+        <input type="number" name="cuota_prestamo" required><br>
+
+        <label>Relación Deuda/Ingreso:</label>
+        <input type="number" step="0.01" name="deuda_ingreso" required><br>
+
+        <label>Tipo de Empleo:</label>
+        <select name="tipo_empleo">
+            <option value="fijo_5_anios">Fijo (5 años)</option>
+            <option value="temporal">Temporal</option>
+            <option value="otros">Otros</option>
+        </select><br>
+
+        <label>Garantías:</label>
+        <select name="garantias">
+            <option value="propiedad">Propiedad</option>
+            <option value="aval_bajo_valor">Aval Bajo Valor</option>
+            <option value="sin_garantías">Sin Garantías</option>
+        </select><br>
+
+        <label>Historial de Préstamos:</label>
+        <select name="historial_prestamos">
+            <option value="sin_retrasos">Sin Retrasos</option>
+            <option value="impagos">Impagos</option>
+            <option value="otros">Otros</option>
+        </select><br>
+
+        <button type="submit">Calcular Riesgo</button>
+    </form>
+
+    {% if resultado %}
+    <h2>Resultado</h2>
+    <p>Puntaje de Riesgo: {{ resultado.puntaje }}</p>
+    <p>Nivel de Riesgo: {{ resultado.nivel }}</p>
+    {% endif %}
+</body>
+</html>
